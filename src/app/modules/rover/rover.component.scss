@@ -1,0 +1,36 @@
+.rovers-wrapper {
+  h1 {
+    text-align: center;
+    padding: 20px 20px 0px;
+    font-size: 30px;
+  }
+  table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    th {
+      text-align: center;
+      padding: 20px 30px;
+      font-size: 15px;
+    }
+    tr {
+      text-align: center;
+      &.mat-row {
+        height: 60px !important;
+      }
+    }
+  }
+}
+
+.spinner {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-left: -4em;
+  p {
+    margin-top: 20px;
+    font-size: 20px;
+    margin-left: -10px;
+    font-weight: 500;
+  }
+}

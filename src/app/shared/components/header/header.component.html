@@ -1,0 +1,14 @@
+<p>
+  <mat-toolbar color="primary" class="justify-content-between">
+    <div>
+      <span>Rover App</span>
+      <span class="example-spacer"></span>
+    </div>
+    <div class="user-wrapper" *ngIf="(user | json) !== '{}'">
+      <span class="position-relative">{{user.name}}</span>
+      <button mat-icon-button class="log-icon" aria-label="Log out" (click)="logOut()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+</p>

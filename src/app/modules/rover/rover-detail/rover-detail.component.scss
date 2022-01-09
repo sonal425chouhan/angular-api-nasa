@@ -1,0 +1,84 @@
+.rover-wrapper {
+  position: relative;
+  h1 {
+    text-align: center;
+    padding: 20px 20px 0px;
+    font-size: 30px;
+  }
+  .rover-card {
+    margin: 0 auto;
+    max-width: 536px;
+    padding-bottom: 50px;
+    height: 600px;
+    .container {
+      height: 270px;
+    }
+    .mat-form-field + .mat-form-field {
+      margin-left: 8px;
+    }
+    .mat-card-header {
+      padding: 20px;
+      text-align: center;
+      display: block;
+      .mat-card-title {
+        font-size: 25px;
+        color: #808080;
+        text-transform: uppercase;
+      }
+    }
+    .mat-card-content, .mat-expansion-panel-header-title {
+      p {
+        padding: 10px;
+        span {
+          text-transform: uppercase;
+          font-weight: 500;
+          letter-spacing: 0.3px;
+        }
+      }
+    }
+    .carousel {
+      margin-top: 25px;
+    }
+    .rover-camera-detail {
+      ::ng-deep {
+        .mat-expansion-panel-content {
+          height: 200px;
+          overflow-y: auto;
+          overflow-x: hidden;
+          &::-webkit-scrollbar {
+            width: 10px;
+          }
+          &::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: #673ab7;
+          }
+        }
+      }
+
+      .camera-name {
+        cursor: pointer;
+        padding: 2px;
+        text-align: center;
+        &.active {
+          z-index: 999;
+          color: #fff;
+          position: relative;
+          &:after {
+            z-index: -1;
+            position: absolute;
+            left: -24px;
+            width: 100vw;
+            background: #673ab7;
+            content: '';
+            height: 31px;
+            top: 0;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .image-loader {
+      margin-top: 15px;
+    }
+  }
+}

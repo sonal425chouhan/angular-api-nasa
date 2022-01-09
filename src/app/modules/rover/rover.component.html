@@ -1,0 +1,48 @@
+<p class="alert text-center alert-danger" *ngIf="errorMessage">{{errorMessage}}</p>
+
+<div class="spinner" *ngIf="fetchingData">
+  <mat-spinner ></mat-spinner>
+  <p>Fetching Rovers...</p>
+</div>
+
+
+<div class="rovers-wrapper" *ngIf="!fetchingData && rovers.length">
+  <h1>List of Rovers</h1>
+  <table mat-table [dataSource]="rovers" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+
+      <th mat-header-cell *matHeaderCellDef title="No."> No. </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i+1}} </td>
+    </ng-container>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id" title="ID">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="name" title="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary"
+          (click)="viewRoverDetails(element)"
+          title="View Details"
+        >
+          View Details
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+

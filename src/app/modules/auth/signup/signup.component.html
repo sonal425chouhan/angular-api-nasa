@@ -1,0 +1,46 @@
+<p class="alert text-center container-fluid" [ngClass]="success ? 'alert-success' : 'alert-danger'" role="alert" *ngIf="errorMessage">{{errorMessage}}</p>
+
+<div class="signup-form">
+  <h1>Register</h1>
+  <form [formGroup]="signupForm" (submit)="register()">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+      <p class="error-msg" *ngIf="signupForm.controls['email'].invalid
+        && (signupForm.controls['email'].hasError('required')
+            || signupForm.controls['email'].hasError('emptyspace'))
+        && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched) && isFormSubmitted" class="error-msg">Email must not be empty</p>
+      <p class="error-msg" *ngIf="signupForm.controls['email'].invalid
+        && (signupForm.controls['email'].hasError('pattern'))
+        && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched) && isFormSubmitted">
+        Email must be valid
+      </p>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" max="30">
+      </mat-form-field>
+      <p class="error-msg" *ngIf="signupForm.controls['username'].invalid
+        && (signupForm.controls['username'].hasError('required')
+            || signupForm.controls['username'].hasError('emptyspace'))
+        && (signupForm.controls['username'].dirty || signupForm.controls['username'].touched) && isFormSubmitted">Username must not be empty</p>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="name" max="70">
+      </mat-form-field>
+      <p class="error-msg" *ngIf="signupForm.controls['name'].invalid
+      && (signupForm.controls['name'].hasError('required')
+          || signupForm.controls['name'].hasError('emptyspace'))
+      && (signupForm.controls['name'].dirty || signupForm.controls['name'].touched) && isFormSubmitted">Full Name must not be empty</p>
+    </div>
+    <div class="register-button">
+      <button mat-raised-button color="primary" type="submit" title="Register" [disabled]="isSubmitting">{{isSubmitting ? 'Registering...' : 'Register'}}</button>
+    </div>
+  </form>
+</div>
